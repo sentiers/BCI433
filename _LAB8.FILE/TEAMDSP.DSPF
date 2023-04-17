@@ -1,0 +1,51 @@
+000001200727     A          R SFL1                      SFL
+000002200727     A            NAME           9   B  9  5
+000003200727     A            POSITION  R        B  9 21REFFLD(AMERICANLG/POSITION +
+000004200727     A                                      BASEBALL20/AMERICANLG)
+000005200727     A            HITSTHROWSR        B  9 35REFFLD(AMERICANLG/HITSTHROWS +
+000006200727     A                                      BASEBALL20/AMERICANLG)
+000007200727     A            BIRTHDATE R        B  9 45REFFLD(AMERICANLG/BIRTHDATE +
+000008200727     A                                      BASEBALL20/AMERICANLG)
+000009200727     A            HEIGHT    R        B  9 58REFFLD(AMERICANLG/HEIGHT +
+000010200727     A                                      BASEBALL20/AMERICANLG)
+000011200727     A            WEIGHT    R        B  9 69REFFLD(AMERICANLG/WEIGHT +
+000012200727     A                                      BASEBALL20/AMERICANLG)
+000013200727     A          R CTL1                      SFLCTL(SFLDATA)
+000014200727     A                                      SFLDSPCTL
+000015200727     A                                      SFLDSP
+000016200727     A                                      SFLPAG(14)
+000017200727     A                                      SFLSIZ(200)
+000018200727     A                                  3 11'View:'
+000019200727     A                                  1 24'T o r o n t o   B l u e   J a y s'
+000020200727     A                                  1 68DATE
+000021200809     A                                      EDTCDE(Y)
+000023200727     A                                  5  7'Pitchers:'
+000024200727     A                                  5 22'Catchers:'
+000025200727     A                                  5 37'Infield:'
+000026200727     A                                  5 51'Outfield:'
+000027200727     A                                  5 66'Other:'
+000028200727     A                                  7  8'Name'
+000029200727     A                                  7 21'Position'
+000030200727     A                                  7 34'Hits/'
+000031200727     A                                  8 34'Throws'
+000032200727     A                                  7 45'Birthdate'
+000033200727     A                                  7 58'Height'
+000034200727     A                                  7 68'Weight'
+000035200727     A            PITCHERT       2   B  5 17
+000036200727     A            CATCHERT       2   B  5 32
+000037200727     A            INFIELDT       2   B  5 46
+000038200727     A            OUTFIELDT      2   B  5 61
+000039200727     A            OTHERT         2   B  5 74
+000040200809     A          R BLUEJAY
+000041200809     A                                  2 31'Toronto Blue Jays 2020'
+000042200809     A                                  2  5USER
+000043200809     A                                  3  5'Hyunji Cho'
+000044200809     A                                  2 68DATE
+000045200809     A                                      EDTCDE(Y)
+000046200809     A                                  5 30'1. Entire Team Roster'
+000047200809     A                                  6 30'2. Pitchers'
+000048200809     A                                  7 30'3. Infield and Outfield'
+000049200809     A                                 10 25'Selection:'
+000050200809     A                                 18 12'F3 - Exit'
+000051200809     A            INPUT          1N 0B 10 36
+000100      

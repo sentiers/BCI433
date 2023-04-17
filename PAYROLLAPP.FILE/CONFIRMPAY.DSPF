@@ -1,0 +1,22 @@
+000001200702     A          R RECORD1
+000002200702     A                                  2 21'S E N E C A    Payroll  Program  C-
+000003200702     A                                      ompleted'
+000004200702     A                                  3 70TIME
+000005200702     A                                  2  3USER
+000006200702     A                                  3  3'Hyunji Cho'
+000007200702     A                                  2 72DATE
+000009200702     A                                  5 11'Rates:'
+000010200702     A                                  7 21'Day Rate:'
+000011200702     A                                  8 21'Afternoon Rate:'
+000012200702     A                                  9 21'Night Rate:'
+000013200702     A                                 12 11'Totals:'
+000014200702     A                                 13 21'Regular Pay:'
+000015200702     A                                 14 21'Overtime Pay:'
+000016200702     A                                 15 21'Company Payout:'
+000023200702     A            DAYRATE        5  2   7 41EDTCDE(1)
+000025200702     A            AFTNRATE       5  2   8 41EDTCDE(1)
+000026200702     A            NIGHTRATE      5  2   9 41EDTCDE(1)
+000027200702     A            TOTREGPAY      9Y 2O 13 41EDTCDE(1)
+000028200702     A            TOTOVPAY       9Y 2O 14 41EDTCDE(1)
+000029200702     A            TOTWKPAY       9Y 2O 15 41EDTCDE(1)
+000100

@@ -1,0 +1,62 @@
+000100200713             PGM                                                                                    
+000200200713             DCL        &SHIFT *CHAR 1                                                              
+000300200713             DCL        &SHIFTTYPE *CHAR 30                                                         
+000400200713             DCL        &OUTQ *CHAR 10                                                              
+000500200713             DCL        &OUTQLIB *CHAR 10                                                           
+000600200713                                                                                                    
+000700200713                                                                                                    
+000800200713             RTVUSRPRF  OUTQ(&OUTQ) OUTQLIB(&OUTQLIB)                                               
+000900200713             CLROUTQ    OUTQ(&OUTQLIB/&OUTQ)                                                        
+001000200713             ADDLIBLE   SENECAPAY                                                                   
+001100200713             MONMSG     MSGID(CPF0000)                                                              
+001200200713                                                                                                    
+001300200713             SNDUSRMSG  MSG('1- Day Shift, 2- Night Shift, +                                        
+001400200713                        3- Afternoon Shift, 4- All Shifts, +                                        
+001500200713                        5- Exit') MSGRPY(&SHIFT)                                                    
+001600200713                                                                                                    
+001700200713             DOWHILE    (&SHIFT *NE '5')                                                            
+001800200713                SELECT                                                                              
+001900200713                   WHEN       (&SHIFT = '1') DO                                                     
+002000200713                   CHGVAR     &SHIFTTYPE  'D A Y  S H I F T'                                        
+002100200713                   OVRPRTF    FILE(PAYRPT2) SPLFNAME(DAYSHIFT)                                      
+002200200713                   OVRDBF     SHIFTWEEK DAYS                                                        
+002300200713                   CALLPRC    PAYPGM3 PARM(&SHIFTTYPE)                                              
+002400200713                   DSPSPLF    FILE(DAYSHIFT) SPLNBR(*LAST)                                          
+002500200713                   ENDDO                                                                            
+002600200713                                                                                                    
+002700200713                   WHEN       (&SHIFT = '2') DO                                                     
+002800200713                   CHGVAR     &SHIFTTYPE 'N I G H T  S H I F T'                                     
+002900200713                   OVRPRTF    FILE(PAYRPT2) SPLFNAME(NIGHTSHIFT)                                    
+003000200713                   OVRDBF     SHIFTWEEK NIGHTS                                                      
+003100200713                   CALLPRC    PAYPGM3 PARM(&SHIFTTYPE)                                              
+003200200713                   DSPSPLF    FILE(NIGHTSHIFT) SPLNBR(*LAST)                                        
+003300200713                   ENDDO                                                                            
+003400200713                   WHEN       (&SHIFT = '3') DO                                                     
+003500200713                   CHGVAR    &SHIFTTYPE 'A F T E R N O O N  S H I F T'                              
+003600200713                   OVRPRTF    FILE(PAYRPT2) SPLFNAME(AFTRNSHIFT)                                    
+003700200713                   OVRDBF     SHIFTWEEK AFTERNOONS                                                  
+003800200713                   CALLPRC    PAYPGM3 PARM(&SHIFTTYPE)                                              
+003900200713                   DSPSPLF    FILE(AFTRNSHIFT) SPLNBR(*LAST)                                        
+004000200713                   ENDDO                                                                            
+004100200713                   WHEN       (&SHIFT = '4') DO                                                     
+004200200713                   CHGVAR     &SHIFTTYPE  'A L L    S H I F T S'                                    
+004300200713                   OVRPRTF    FILE(PAYRPT2) OVRFLW(25) +                                            
+004400200713                              SPLFNAME(SHIFTWEEKS)                                                  
+004500200713                   OVRDBF     SHIFTWEEK SHIFTWEEK                                                   
+004600200713                   CALLPRC    PAYPGM3 PARM(&SHIFTTYPE)                                              
+004700200713                   DSPSPLF    FILE(SHIFTWEEKS) SPLNBR(*LAST)                                        
+004800200713                   ENDDO                                                                            
+004900200713                                                                                                    
+005000200713                   OTHERWISE DO                                                                     
+005100200713                   SNDUSRMSG  MSG(&SHIFT *CAT 'IS NOT A VALID SELECT')                              
+005200200713                   ENDDO                                                                            
+005300200713                                                                                                    
+005400200713                ENDSELECT                                                                           
+005500200713                                                                                                    
+005600200713                SNDUSRMSG  MSG('1- Day Shift, 2- Night Shift, +                                     
+005700200713                           3- Afternoon Shift, 4- All Shifts, +                                     
+005800200713                           5- Exit') MSGRPY(&SHIFT)                                                 
+005900200713                                                                                                    
+006000200713             ENDDO                                                                                  
+006100200713             WRKOUTQ    &OUTQLIB/&OUTQ                                                              
+006200200713             ENDPGM                                                                                 

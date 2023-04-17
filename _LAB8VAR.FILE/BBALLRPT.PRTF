@@ -1,0 +1,57 @@
+000001200721     A          R PAGESTART
+000002200413     A                                  1 47'B A S E B A L L   R E P O R T'
+000003200306     A            TEAMNAME      20      3 12
+000004200401     A                                  1  1DATE
+000005200306     A                                      EDTCDE(Y)
+000006200413     A                                  1118PAGNBR
+000007200413     A                                  1110'Page: '
+000008200306     A            DAYSTOWS       3  0   3 69EDTCDE(1)
+000009200306     A                                  3 34'Number of Days until World Series:'
+000010200306     A                                  3  6'Team:'
+000011200810     A                                  1 12'     H y u n j i     C h o     '
+000012200413     A                                  1 84'Server:'
+000013200413     A            SERVER        10      1 94
+000014200721     A          R HEADINGS
+000015200225     A                                     5'Position'
+000016200306     A                                      SPACEB(2)
+000017200225     A                                    23'Name'
+000018200225     A                                    52'No'
+000020200225     A                                    60'Birthday'
+000022200227     A                                    73'Age'
+000024200227     A                                    79'Height'
+000026200227     A                                    93'Weight'
+000028200225     A                                   102'Hits/Throws'
+000029200306     A                                      SPACEA(1)
+000030200721     A          R PLAYERINFO                SPACEB(1)
+000031200225     A            FULLNAME      36        15
+000032200225     A            NUMBER    R             53REFFLD(AMERICANLG/NUMBER +
+000033200225     A                                      BASEBALL20/AMERICANLG)
+000034200225     A            BIRTHDATE R             59REFFLD(AMERICANLG/BIRTHDATE +
+000035200225     A                                      BASEBALL20/AMERICANLG)
+000036200227     A            AGE            2  0     73
+000037200227     A            HEIGHT    R    6        79REFFLD(AMERICANLG/HEIGHT +
+000038200225     A                                      BASEBALL20/AMERICANLG)
+000039200227     A            WEIGHT    R    3  0     94REFFLD(AMERICANLG/WEIGHT +
+000040200225     A                                      BASEBALL20/AMERICANLG)
+000041200225     A            HITSTHROWSR    4       106REFFLD(AMERICANLG/HITSTHROWS +
+000042200225     A                                      BASEBALL20/AMERICANLG)
+000043200226     A*                                     SPACEA(1)
+000045200225     A          R NEWPOSN                   SPACEB(1)
+000046200225     A            PPOSITION      9         4
+000047200721     A          R AVERAGEPOS                SPACEB(2)
+000048200227     A                                     8'Total:'
+000049200227     A            TOTALPOS       2  0     17
+000050200227     A                                    58'Average Age:'
+000051200721     A            AVERAGEAGE     2  0     73
+000052200227     A                                    77'Average Weight:'
+000053200721     A            AVERAGEWT      3  0     94SPACEA(1)
+000061200228     A          R LEAGUETOTL                SPACEB(2)
+000064200228     A                                     6'Total Players on Team:'
+000065200228     A            TEAMTOTAL      3  0     38EDTCDE(1)
+000066200228     A                                     6'Total Western Division Players:'
+000067200228     A                                      SPACEB(1)
+000068200228     A            WESTTOTAL      3  0     38EDTCDE(1)
+000069200228     A                                     6'Total Eastern Division Players:'
+000070200228     A                                      SPACEB(1)
+000071200228     A            EASTTOTAL      3  0     38EDTCDE(1)
+000100      

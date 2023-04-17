@@ -1,0 +1,13 @@
+000100200809     A          R AMERICANLG                PFILE(BASEBALL20/AMERICANLG)
+000101200809                  FNAME
+000102200809                  LNAME
+000103200809                  POSITION
+000104200809                  HITSTHROWS
+000105200809                  BIRTHDATE
+000106200809                  HEIGHT
+000107200809                  WEIGHT
+000108200809                  TEAM
+000109200809     A          K LNAME
+000110200809     A          S TEAM                      COMP(EQ 3)
+000111200809                  POSITION                  COMP(EQ 'I')
+000112200809                  POSITION                  COMP(EQ 'O')

@@ -1,0 +1,59 @@
+000001200702     A          R TITLE
+000002200702     A                                  1 45'Weekly Payroll Report'
+000003200702     A                                  1 89'Page:'
+000004200702     A                                  1 94PAGNBR
+000005200702     A                                  1  3DATE(*YY)
+000006200702     A                                      EDTCDE(Y)
+000007200702     A                                  1 15TIME
+000008200702     A                                  2  3'Name: Hyunji Cho'
+000009200702     A          R COLHDG                    SPACEB(1)
+000010200702     A                                      SPACEA(1)
+000011200702     A                                     6'Employee'
+000012200702     A                                      SPACEB(1)
+000013200702     A                                    19'Work'
+000014200702     A                                    29'Pay'
+000015200702     A                                    37'Hourly'
+000016200702     A                                    47'Hours'
+000017200702     A                                    56'Regular'
+000018200702     A                                    71'Overtime'
+000019200702     A                                    89'Total'
+000020200702     A                                     6'Number'
+000021200702     A                                      SPACEB(1)
+000022200702     A                                    18'Shift'
+000023200702     A                                    29'Grade'
+000024200702     A                                    37'Rate'
+000025200702     A                                    47'Worked'
+000026200702     A                                    56'Pay'
+000027200702     A                                    73'Pay'
+000035200702     A                                    90'Pay'
+000037200702     A          R EMPDETAIL                 SPACEB(1)
+000038200702     A            EMPNUM    R              5
+000039200702     A                                      REFFLD(SHIFTWEEK/EMPNUM SENECAPAY/S-
+000040200702     A                                      HIFTWEEK)
+000041200702     A                                      EDTWRD('0   -   -   -')
+000042200702     A            WORKSHIFT R             20REFFLD(SHIFTWEEK/WORKSHIFT +
+000043200702     A                                      SENECAPAY/SHIFTWEEK)
+000044200702     A            PAYGRADE  R             30REFFLD(SHIFTWEEK/PAYGRADE +
+000045200702     A                                      SENECAPAY/SHIFTWEEK)
+000046200702     A            HOURLYRATE     5  2     37EDTCDE(1)
+000047200702     A            HRSWORKED R             48REFFLD(SHIFTWEEK/HRSWORKED +
+000048200702     A                                      SENECAPAY/SHIFTWEEK)
+000049200702     A                                      EDTCDE(1)
+000050200702     A            REGULARPAY     7  2     55EDTCDE(1)
+000051200702     A            OVERPAY        7  2     70EDTCDE(2)
+000052200702     A            WEEKLYPAY      7  2     86EDTCDE(1)
+000053200702     A          R TOTALS                    SPACEB(2)
+000054200702     A                                    41'Totals:'
+000055200702     A            TOTREGPAY      9  2     51EDTCDE(1 $)
+000056200702     A            TOTOVPAY       9  2     66EDTCDE(1 $)
+000057200702     A            TOTWKPAY       9  2     82EDTCDE(1 $)
+000100      
+000101200702     A*%%RS+<record-sequences>
+000102200702     A*%%RS+ <sequence name="REPORT1">
+000103200702     A*%%RS+  <device type="printer" width="132" height="66" />
+000104200702     A*%%RS+  <record-write record-format="TITLE" />
+000105200702     A*%%RS+  <record-write record-format="COLHDG" />
+000106200702     A*%%RS+  <record-write record-format="EMPDETAIL" />
+000107200702     A*%%RS+  <record-write record-format="TOTALS" />
+000108200702     A*%%RS+ </sequence>
+000109200702     A*%%RS </record-sequences>

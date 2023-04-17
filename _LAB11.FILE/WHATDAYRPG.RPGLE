@@ -1,0 +1,39 @@
+000100200808
+000300161001       // DatFmt used to ensure that *USA is the default for all date fields
+000400990120
+000500181115       Ctl-Opt  DatFmt(*USA) ;
+000600181125
+000700181119       Dcl-F  WhatDayDsp Workstn;
+000800960402
+000900200808       /COPY lab11,DATEPROTOS
+001000960402
+001100181024       Dcl-S  WorkDay    Zoned(1);
+001200181024       Dcl-S  WorkDate   Date;
+001300960402
+001400200808       EXFMT Input;
+001500181115
+001600181115       Dow not *IN03;
+001700181119
+001800181119         // DayOfWeek is not an RPGLE function, it is a user defined function
+001900200808
+002301200808         WorkDate = DateIn;
+002302200808         WorkDay = DayOfWeek(WorkDate);
+002303200808
+002304200811         Result1 = 'That''s a ' + DAYNAME(WORKDATE);
+002305200808         Result2 = '' + DATEWORDS(WORKDATE);
+002306200808
+002400181115         *IN90 = *ON;
+002500181115         WRITE INPUT;
+002600181115         ExFmt OUTPUT;
+002700181115         *IN90 = *Off;
+002800181115
+002900181115         If not *IN03;
+003000181115           exfmt INPUT;
+003100181115         ENDIF;
+003200111014       EndDo;
+003300960402
+003400111014       // User pressed F3 so set LR and exit
+003500960402
+003600111014       *InLR = *On;
+003700181119       Return;
+003800960402

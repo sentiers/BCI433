@@ -1,0 +1,74 @@
+000100200702         DCL-F SHIFTWEEK USAGE(*INPUT) KEYED RENAME(SHIFTWEEK:SHIFTWEEKR);                          
+000200200713         DCL-F SHIFTRATES DISK USAGE(*INPUT);                                                       
+000300200702                                                                                                    
+000400200711         DCL-F CONFIRMPY2 WORKSTN;                                                                  
+000500200711                                                                                                    
+000600200711         DCL-F PAYRPT2 PRINTER OFLIND(*IN01);                                                       
+000700200711                                                                                                    
+000800200702         DCL-S HOURSOVER PACKED(3);                                                                 
+000900200702                                                                                                    
+001000200710         DCL-PI MAIN EXTPGM('PAYPGM2');                                                             
+001100200710           SHIFTTYPE CHAR(30);                                                                      
+001200200710         END-PI;                                                                                    
+001300200710                                                                                                    
+001400200702               READ SHIFTRATES;                                                                     
+001500200702               WRITE TITLE;                                                                         
+001600200702               WRITE COLHDG;                                                                        
+001700200702               READ SHIFTWEEK;                                                                      
+001800200702                                                                                                    
+001900200702               DOW NOT %EOF(SHIFTWEEK);                                                             
+002000200702                 EXSR PAYSR;                                                                        
+002100200702                                                                                                    
+002200200702                 IF *IN01;                                                                          
+002300200702                   WRITE TITLE;                                                                     
+002400200702                   WRITE COLHDG;                                                                    
+002500200702                   *IN01 = *OFF;                                                                    
+002600200702                 ENDIF;                                                                             
+002700200702                                                                                                    
+002800200702                 WRITE EMPDETAIL;                                                                   
+002900200702                 READ SHIFTWEEK;                                                                    
+003000200702                                                                                                    
+003100200702               ENDDO;                                                                               
+003200200702                                                                                                    
+003300200702               TOTWKPAY = TOTREGPAY + TOTOVPAY;                                                     
+003400200702               WRITE TOTALS;                                                                        
+003500200702               EXFMT RECORD1;                                                                       
+003600200702               *INLR = *ON;                                                                         
+003700200702               RETURN;                                                                              
+003800200702                                                                                                    
+003900200702               BEGSR PAYSR;                                                                         
+004000200702                 SELECT;                                                                            
+004100200702                   WHEN WORKSHIFT = '1';                                                            
+004200200702                     HOURLYRATE = DAYRATE;                                                          
+004300200702                   WHEN WORKSHIFT = '2';                                                            
+004400200702                     HOURLYRATE = AFTNRATE;                                                         
+004500200702                   WHEN WORKSHIFT = '3';                                                            
+004600200702                     HOURLYRATE = NIGHTRATE;                                                        
+004700200702                 ENDSL;                                                                             
+004800200702                                                                                                    
+004900200702                 SELECT;                                                                            
+005000200702                   WHEN PAYGRADE = 'A';                                                             
+005100200702                     EVAL(H) HOURLYRATE *= 1.096;                                                   
+005200200702                   WHEN PAYGRADE = 'B';                                                             
+005300200702                     EVAL(H) HOURLYRATE *= 1.072;                                                   
+005400200702                   WHEN PAYGRADE = 'C';                                                             
+005500200702                     EVAL(H) HOURLYRATE *= 0.956;                                                   
+005600200702                   WHEN PAYGRADE = 'D';                                                             
+005700200702                     HOURLYRATE = HOURLYRATE;                                                       
+005800200702                 ENDSL;                                                                             
+005900200702                                                                                                    
+006000200702                 IF HRSWORKED <= 40;                                                                
+006100200702                   OVERPAY = 0;                                                                     
+006200200702                   HOURSOVER = 0;                                                                   
+006300200702                   EVAL(H) REGULARPAY = HRSWORKED * HOURLYRATE;                                     
+006400200702                 ELSE;                                                                              
+006500200702                   HOURSOVER = HRSWORKED - 40;                                                      
+006600200702                   EVAL(H) OVERPAY = HOURSOVER * (1.5 * HOURLYRATE);                                
+006700200702                   EVAL REGULARPAY = 40 * HOURLYRATE;                                               
+006800200702                 ENDIF;                                                                             
+006900200702                                                                                                    
+007000200702                 WEEKLYPAY = REGULARPAY + OVERPAY;                                                  
+007100200702                 TOTREGPAY += REGULARPAY;                                                           
+007200200702                 TOTOVPAY += OVERPAY;                                                               
+007300200702                                                                                                    
+007400200702               ENDSR;                                                                               
